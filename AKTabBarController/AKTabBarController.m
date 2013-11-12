@@ -359,6 +359,34 @@ typedef enum {
     [self setSelectedViewController:(self.viewControllers)[selectedIndex]];
 }
 
+- (void)setTabTitles:(NSArray *)tabTitles {
+    if (tabTitles != _tabTitles) {
+        _tabTitles = tabTitles;
+        [self loadTabs];
+    }
+}
+
+- (void)setTabImageNames:(NSArray *)tabImageNames {
+    if (tabImageNames != _tabImageNames) {
+        _tabImageNames = tabImageNames;
+        [self loadTabs];
+    }
+}
+
+- (void)setTabActiveImageNames:(NSArray *)tabActiveImageNames {
+    if (tabActiveImageNames != _tabActiveImageNames) {
+        _tabActiveImageNames = tabActiveImageNames;
+        [self loadTabs];
+    }
+}
+
+- (void)setTabBackgroundImageNames:(NSArray *)tabBackgroundImageNames {
+    if (tabBackgroundImageNames != _tabBackgroundImageNames) {
+        _tabBackgroundImageNames = tabBackgroundImageNames;
+        [self loadTabs];
+    }
+}
+
 #pragma mark - Hide / Show Methods
 
 - (void)showTabBarAnimated:(BOOL)animated {
