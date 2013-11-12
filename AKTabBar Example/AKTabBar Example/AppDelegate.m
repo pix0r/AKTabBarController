@@ -45,6 +45,22 @@
                                                [[SecondViewController alloc] init],
                                                [[ThirdViewController alloc] init],
                                                [[FourthViewController alloc] init],nil]];
+
+    // Override fourth tab title
+    _tabBarController.tabTitles = @[
+                                    [NSNull null],
+                                    [NSNull null],
+                                    [NSNull null],
+                                    @"Link!",
+                                    ];
+    
+    // Override fourth tab image name
+    _tabBarController.tabImageNames = @[
+                                        [NSNull null],
+                                        [NSNull null],
+                                        [NSNull null],
+                                        @"image-4",
+                                        ];
     
     // Below you will find an example of the possible customizations, just uncomment the lines below
     
