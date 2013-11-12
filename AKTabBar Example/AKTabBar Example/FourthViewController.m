@@ -14,14 +14,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Link";
+        // instead of setting title here, override in AppDelegate.m
+        // self.title = @"Link";
     }
     return self;
-}
-
-- (NSString *)tabImageName
-{
-	return @"image-4";
 }
 
 @end
