@@ -29,6 +29,18 @@
 // View Controllers handled by the tab bar controller.
 @property (nonatomic, strong) NSMutableArray *viewControllers;
 
+// Optionally specify tab titles instead of retrieving from view controllers
+@property (nonatomic, strong) NSArray *tabTitles;
+
+// Optionally specify tab image names instead of retrieving from view controllers
+@property (nonatomic, strong) NSArray *tabImageNames;
+
+// Optionally specify active tab image names instead of retrieving from view controllers
+@property (nonatomic, strong) NSArray *tabActiveImageNames;
+
+// Optionally specify background tab image names instead of retrieving from view controllers
+@property (nonatomic, strong) NSArray *tabBackgroundImageNames;
+
 // Current active view controller
 @property (nonatomic, strong) UIViewController *selectedViewController;
 

@@ -125,12 +125,23 @@ typedef enum {
     [[tabBarView tabBar] setEdgeColor:[self tabEdgeColor]];
     [[tabBarView tabBar] setTopEdgeColor:[self topEdgeColor]];
 
-    for (UIViewController *vc in self.viewControllers) {
+    for (int tabIdx = 0; tabIdx < self.viewControllers.count; tabIdx++) {
+        UIViewController *vc = self.viewControllers[tabIdx];
         AKTab *tab = [[AKTab alloc] init];
-        [tab setTabImageWithName:[vc tabImageName]];
-        [tab setActiveImageWithName:[vc activeTabImageName]];
         
-        if([vc tabBackgroundImageName]) {
+        if (self.tabImageNames && (id)[NSNull null] != self.tabImageNames[tabIdx]) {
+            [tab setTabImageWithName:self.tabImageNames[tabIdx]];
+        } else {
+            [tab setTabImageWithName:[vc tabImageName]];
+        }
+        if (self.tabActiveImageNames && (id)[NSNull null] != self.tabActiveImageNames[tabIdx]) {
+            [tab setActiveImageWithName:self.tabActiveImageNames[tabIdx]];
+        } else {
+            [tab setActiveImageWithName:[vc activeTabImageName]];
+        }
+        if (self.tabBackgroundImageNames && (id)[NSNull null] != self.tabBackgroundImageNames[tabIdx]) {
+            [tab setBackgroundImageName:self.tabBackgroundImageNames[tabIdx]];
+        } else if ([vc tabBackgroundImageName]) {
             [tab setBackgroundImageName:[vc tabBackgroundImageName]];
         } else {
             [tab setBackgroundImageName:[self backgroundImageName]];
@@ -153,7 +164,12 @@ typedef enum {
         [tab setTextColor:[self textColor]];
         [tab setSelectedTextColor:[self selectedTextColor]];
         [tab setTabTitleFont:[self textFont]];
-        [tab setTabTitle:[vc tabTitle]];
+        
+        if (self.tabTitles && (id)[NSNull null] != self.tabTitles[tabIdx]) {
+            [tab setTabTitle:self.tabTitles[tabIdx]];
+        } else {
+            [tab setTabTitle:[vc tabTitle]];
+        }
 
         [tab setTabBarHeight:tabBarHeight];
         
